@@ -7,3 +7,5 @@ function createTodo (title, description, dueDate, priority, project) {
         project: project
     };
 }
+
+export { createTodo };
