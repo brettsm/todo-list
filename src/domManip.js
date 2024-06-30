@@ -10,6 +10,7 @@ function buildHomePage(contentDiv) {
 
     const projectDisplay = document.createElement('div');
     projectDisplay.classList.add('project-display');
+    projectDisplay.id = 'display';
 
 
     const sidebarNav = document.createElement('nav');
@@ -18,6 +19,7 @@ function buildHomePage(contentDiv) {
     const dashboardButton = document.createElement('button');
     dashboardButton.id = 'dashboard-button';
     dashboardButton.classList.add('nav-button');
+    dashboardButton.classList.add('raleway-bold');
     dashboardButton.textContent = 'Dashboard';
     //dashboardButton.addEventListener('click', displayDashboard())
     //TODO: create a module for displayDashboard
@@ -25,6 +27,7 @@ function buildHomePage(contentDiv) {
     const projectsButton = document.createElement('button');
     projectsButton.id = 'projects-button';
     projectsButton.classList.add('nav-button');
+    projectsButton.classList.add('raleway-bold');
     projectsButton.textContent = 'Projects'
 
     sidebarNav.append(dashboardButton);
@@ -33,6 +36,20 @@ function buildHomePage(contentDiv) {
     content.append(sidebar);
     content.append(projectDisplay);
 }
+
+function displayTodoList(list) {
+    const display = document.getElementById('display');
+    display.innerHTML = '';
+
+    const card = document.createElement('div');
+    
+    const project = list[0].project;
+    for(todo in list) {
+
+    }
+}
+
+
 
 export { buildHomePage };
 
