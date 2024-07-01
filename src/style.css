@@ -84,5 +84,7 @@
 .todo-element {
     border-top: 2px solid black;
     width: inherit;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 

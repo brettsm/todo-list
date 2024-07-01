@@ -45,6 +45,47 @@ function buildHomePage(contentDiv) {
     
     projectDisplay.append(newButton);
     console.log('Appended newButton', newButton);
+
+    //newButton.addEventListener('click', showForm);
+}
+
+function showForm() {
+    const display = document.getElementById('display');
+
+    // Clear any existing content in the display div
+    display.innerHTML = '';
+
+    const formContainer = document.createElement('div');
+    formContainer.id = 'form-container';
+
+    const form = document.createElement('form');
+    form.id = 'project-form';
+
+    form.innerHTML = `
+        <label for="project">Project:</label>
+        <input type="text" id="project" name="project" required><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+        <label for="due-date">Due Date:</label>
+        <input type="date" id="due-date" name="due-date" required><br>
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select><br>
+        <button type="submit">Submit</button>
+        <button type="button" id="cancel-button">Cancel</button>
+    `;
+
+    formContainer.appendChild(form);
+    display.appendChild(formContainer);
+
+    // Add event listeners for form submission and cancellation
+    form.addEventListener('submit', handleFormSubmit);
+    document.getElementById('cancel-button').addEventListener('click', hideForm);
 }
 
 function displayTodoList(list) {
@@ -63,7 +104,7 @@ function displayTodoList(list) {
         card.append(projectDiv);
 
         const titleDiv = document.createElement('div');
-        titleDiv.textContent = list[i].title;
+        titleDiv.textContent = 'TITLE: ' + list[i].title;
         titleDiv.classList.add('raleway-normal','todo-element');
         card.append(titleDiv);
 
@@ -73,7 +114,7 @@ function displayTodoList(list) {
         card.append(descriptionDiv);
 
         const priorityDiv = document.createElement('div');
-        priorityDiv.textContent = list[i].priority;
+        priorityDiv.textContent = 'PRIORITY: ' + list[i].priority;
         priorityDiv.classList.add('raleway-normal');
         priorityDiv.classList.add('todo-element');
         card.append(priorityDiv);
@@ -96,8 +137,10 @@ function addNewListButton() {
     newButton.textContent = '+';
     
     display.append(newButton);
-    console.log('Appended newButton', newButton);
+    console.log('Appended newButton!!!!!', newButton);
 }
+
+
 
 
 

@@ -6,11 +6,11 @@ function displayDashboard() {
 
     const defaultList = [];
 
-    defaultList.push(createTodo('hello','bill',1,2,'test'));
+    defaultList.push(createTodo('First Todo!','Create a new Project!','ASAP',1,'First Project!'));
 
     displayTodoList(defaultList);
     
-    addNewListButton;
+    addNewListButton();
 
 }
 

@@ -5,3 +5,6 @@ buildHomePage('content');
 
 const dashboardBtn = document.getElementById('dashboard-button');
 dashboardBtn.addEventListener('click', displayDashboard);
+
+const newTodoButton = document.getElementById('new-button');
+newTodoButton.addEventListener('click', displayDashboard);
