@@ -70,11 +70,6 @@
     margin: 10px;
 }
 
-.todo-list-in-card {
-    display: flex;
-    flex-direction: column;
-}
-
 #new-button {
     background-color: whitesmoke;
     border: 2px solid black;
@@ -84,5 +79,10 @@
     height: 50px;
     font-size: xx-large;
     margin-bottom: 10px;
+}
+
+.todo-element {
+    border-top: 2px solid black;
+    width: inherit;
 }
 

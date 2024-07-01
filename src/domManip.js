@@ -64,24 +64,43 @@ function displayTodoList(list) {
 
         const titleDiv = document.createElement('div');
         titleDiv.textContent = list[i].title;
-        titleDiv.classList.add('raleway-normal');
+        titleDiv.classList.add('raleway-normal','todo-element');
         card.append(titleDiv);
 
         const descriptionDiv = document.createElement('div');
         descriptionDiv.textContent = list[i].description;
-        descriptionDiv.classList.add('raleway-normal');
+        descriptionDiv.classList.add('raleway-normal', 'todo-element');
         card.append(descriptionDiv);
 
         const priorityDiv = document.createElement('div');
         priorityDiv.textContent = list[i].priority;
         priorityDiv.classList.add('raleway-normal');
+        priorityDiv.classList.add('todo-element');
         card.append(priorityDiv);
     }
     display.append(card);
 }
 
+function resetDisplay() {
+    const display = document.getElementById('display');
+    display.innerHTML = '';
+    
+}
+
+function addNewListButton() {
+
+    const display = document.getElementById('display');
+    const newButton = document.createElement('button');
+    newButton.classList.add('raleway-bold');
+    newButton.id = 'new-button';
+    newButton.textContent = '+';
+    
+    display.append(newButton);
+    console.log('Appended newButton', newButton);
+}
 
 
 
-export { buildHomePage, displayTodoList };
+
+export { buildHomePage, displayTodoList, resetDisplay, addNewListButton };
 

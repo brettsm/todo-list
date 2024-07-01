@@ -1,20 +1,16 @@
 import { createTodo } from './todo.js';
-import { displayTodoList } from './domManip.js';
+import { displayTodoList, resetDisplay, addNewListButton } from './domManip.js';
 
 function displayDashboard() {
-    const display = document.getElementById('display');
-    display.innerHTML = '';
-
-    const textDiv = document.createElement('div');
-    textDiv.textContent = 'Hello';
-
-    display.append(textDiv);
+    resetDisplay();
 
     const defaultList = [];
 
     defaultList.push(createTodo('hello','bill',1,2,'test'));
 
     displayTodoList(defaultList);
+    
+    addNewListButton;
 
 }
 
