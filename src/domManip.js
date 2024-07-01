@@ -42,14 +42,36 @@ function displayTodoList(list) {
     display.innerHTML = '';
 
     const card = document.createElement('div');
-    
-    const project = list[0].project;
-    for(todo in list) {
+    card.classList.add('content-card');
 
+    for(let i = 0; i < list.length; i++) {
+        console.log('Appending todo....');
+
+        const projectDiv = document.createElement('div');
+        projectDiv.textContent = list[i].project;
+        projectDiv.classList.add('raleway-bold');
+        card.append(projectDiv);
+
+        const titleDiv = document.createElement('div');
+        titleDiv.textContent = list[i].title;
+        titleDiv.classList.add('raleway-normal');
+        card.append(titleDiv);
+
+        const descriptionDiv = document.createElement('div');
+        descriptionDiv.textContent = list[i].description;
+        descriptionDiv.classList.add('raleway-normal');
+        card.append(descriptionDiv);
+
+        const priorityDiv = document.createElement('div');
+        priorityDiv.textContent = list[i].priority;
+        priorityDiv.classList.add('raleway-normal');
+        card.append(priorityDiv);
     }
+    display.append(card);
 }
 
 
 
-export { buildHomePage };
+
+export { buildHomePage, displayTodoList };
 

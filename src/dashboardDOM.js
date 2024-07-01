@@ -1,4 +1,5 @@
 import { createTodo } from './todo.js';
+import { displayTodoList } from './domManip.js';
 
 function displayDashboard() {
     const display = document.getElementById('display');
@@ -13,7 +14,7 @@ function displayDashboard() {
 
     defaultList.push(createTodo('hello','bill',1,2,'test'));
 
-    
+    displayTodoList(defaultList);
 
 }
 
