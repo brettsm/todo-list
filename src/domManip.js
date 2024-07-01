@@ -35,6 +35,16 @@ function buildHomePage(contentDiv) {
     sidebar.append(sidebarNav);
     content.append(sidebar);
     content.append(projectDisplay);
+
+    //add button for creating new list
+
+    const newButton = document.createElement('button');
+    newButton.classList.add('raleway-bold');
+    newButton.id = 'new-button';
+    newButton.textContent = '+';
+    
+    projectDisplay.append(newButton);
+    console.log('Appended newButton', newButton);
 }
 
 function displayTodoList(list) {
