@@ -104,5 +104,5 @@ function addNewListButton() {
 
 
 
-export { buildHomePage, displayTodoList, resetDisplay, addNewListButton, showForm };
+export { buildHomePage, displayTodoList, resetDisplay, addNewListButton };
 
