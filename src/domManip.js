@@ -138,6 +138,7 @@ function displayProjects(projectList) {
         navProject.id = 'nav-' + projectList.getProjectAt(i).getName() + '-button';
         navProject.textContent = projectList.getProjectAt(i).getName();
         navProject.classList.add('raleway-normal');
+        navProject.classList.add('nav-project-button');
         projectSideDiv.append(navProject);
 
         //add active Listener so when you click on the project it displays all todos associated
