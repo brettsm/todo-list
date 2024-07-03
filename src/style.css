@@ -43,6 +43,11 @@
     background-color: whitesmoke;
 }
 
+.nav-button:hover {
+    background-color: lightgray;
+    box-shadow: 20px 20px;
+}
+
 .raleway-bold {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;

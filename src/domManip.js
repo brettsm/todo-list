@@ -108,15 +108,17 @@ function displayProjectTodos(project) {
     projectDisplayCard.classList.add('flex-column-center');
     projectDisplayCard.classList.add('raleway-normal');
     projectDisplayCard.classList.add('card-styling');
+    projectDisplayCard.append(document.createElement('h1').textContent = 'TODOS in ' + project);
+    
     const display = document.getElementById('display');
     for(let i = 0; i < allTodoList.getLength(); i++) {
         if(allTodoList.getProjectAt(i) == project) {
-            const todoDiv = document.createElement('div');
-            todoDiv.id = 'todo-div-' + allTodoList.getTitleAt(i);
-            todoDiv.classList.add('raleway-normal');
-            todoDiv.textContent = allTodoList.getTitleAt(i);
+            const todoButton = document.createElement('button');
+            todoButton.id = 'todo-div-' + allTodoList.getTitleAt(i);
+            todoButton.classList.add('raleway-normal');
+            todoButton.textContent = allTodoList.getTitleAt(i);
 
-            projectDisplayCard.append(todoDiv);
+            projectDisplayCard.append(todoButton);
         }
     }
     display.append(projectDisplayCard);
