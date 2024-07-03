@@ -49,6 +49,30 @@ function buildHomePage(contentDiv) {
     //newButton.addEventListener('click', showForm);
 }
 
+function hideForm() {
+    const display = document.getElementById('display');
+    display.innerHTML = ''; // Clear the display div
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const project = document.getElementById('project').value;
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const dueDate = document.getElementById('due-date').value;
+    const priority = document.getElementById('priority').value;
+
+    console.log('Form Data:', { project, title, description, dueDate, priority });
+
+    hideForm();
+
+    // You can now use the form data to create a new project or todo item
+    // For example:
+    // const newTodo = createTodo(title, description, priority, dueDate, project);
+    // displayTodoList([...existingTodos, newTodo]);
+}
+
 function showForm() {
     const display = document.getElementById('display');
 
@@ -84,7 +108,7 @@ function showForm() {
     display.appendChild(formContainer);
 
     // Add event listeners for form submission and cancellation
-    form.addEventListener('submit', handleFormSubmit);
+    form.addEventListener('submit', handleFormSubmit );
     document.getElementById('cancel-button').addEventListener('click', hideForm);
 }
 
