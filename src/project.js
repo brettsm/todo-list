@@ -1,3 +1,5 @@
+import { allProjectList } from './index.js';
+
 
 function createProject(name) {
 
@@ -21,7 +23,11 @@ function createProject(name) {
         return todoList[index];
     }
 
-    const getName = function(index) {
+    const getTitle = function(index) {
+        return todoList[index].getTitle(index);
+    }
+
+    const getName = function() {
         return name;
     }
 
@@ -37,7 +43,7 @@ function createProject(name) {
         }
     }
 
-    return { addTodo, removeTodo, getTodoAt, getName, length };
+    return { addTodo, removeTodo, getTodoAt, getName, length, contains, getName };
 
 
 }

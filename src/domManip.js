@@ -2,6 +2,9 @@ import './style.css';
 import { displayDashboard } from './dashboardDOM.js';
 import { createTodo } from './todo.js';
 import { showForm, hideForm, handleFormSubmit } from './todoForm.js';
+import { createProjectList } from './projectList.js';
+import { allProjectList, allTodoList } from './index.js';
+import { createProject } from './project.js';
 
 function buildHomePage(contentDiv) {
     const content = document.getElementById(contentDiv);
@@ -25,20 +28,23 @@ function buildHomePage(contentDiv) {
     //dashboardButton.addEventListener('click', displayDashboard())
     //TODO: create a module for displayDashboard
 
-    const projectsButton = document.createElement('button');
-    projectsButton.id = 'projects-button';
-    projectsButton.classList.add('nav-button');
-    projectsButton.classList.add('raleway-bold');
-    projectsButton.textContent = 'Projects'
+    const projectsDiv = document.createElement('div');
+    projectsDiv.id = 'projects-div';
+    projectsDiv.classList.add('card-styling');
+    console.log('appended: ', projectsDiv);
+    const projectsTitle = document.createElement('h2');
+    projectsTitle.id = 'projects-title';
+    projectsTitle.classList.add('raleway-bold');
+    projectsTitle.textContent = 'Projects'
 
     sidebarNav.append(dashboardButton);
-    sidebarNav.append(projectsButton);
+    sidebarNav.append(projectsTitle);
+    sidebarNav.append(projectsDiv);
     sidebar.append(sidebarNav);
     content.append(sidebar);
     content.append(projectDisplay);
 
-    //add button for creating new list
-
+    displayProjects(allProjectList);
     
 }
 
@@ -94,6 +100,45 @@ function addNewListButton() {
     newButton.addEventListener('click', showForm);
 }
 
+function displayProjectTodos(project) {
+    console.log('appending todos from ' + project);
+    resetDisplay();
+    const projectDisplayCard = document.createElement('div');
+    projectDisplayCard.id = 'project-display-card';
+    projectDisplayCard.classList.add('project-display');
+    projectDisplayCard.classList.add('raleway-normal');
+    const display = document.getElementById('display');
+    for(let i = 0; i < allTodoList.getLength(); i++) {
+        if(allTodoList.getProjectAt(i) == project) {
+            const todoDiv = document.createElement('div');
+            todoDiv.id = 'todo-div-' + allTodoList.getTitleAt(i);
+            todoDiv.classList.add('raleway-normal');
+
+            projectDisplayCard.append('todoDiv');
+        }
+    }
+    display.append(projectDisplayCard);
+
+}
+
+function displayProjects(projectList) {
+    const projectSideDiv = document.getElementById('projects-div');
+    if (!projectSideDiv) {
+        console.error('Element with id "projects-div" not found');
+        return;
+    }
+
+    for (let i = 0; i < projectList.getLength(); i++) {
+        const navProject = document.createElement('button');
+        navProject.id = 'nav-' + projectList.getProjectAt(i).getName() + '-button';
+        navProject.textContent = projectList.getProjectAt(i).getName();
+        navProject.classList.add('raleway-normal');
+        projectSideDiv.append(navProject);
+
+        //add active Listener so when you click on the project it displays all todos associated
+        navProject.addEventListener('click', () => displayProjectTodos(projectList.getProjectAt(i).getName()));
+    }
+}
 
 
 
@@ -101,5 +146,6 @@ function addNewListButton() {
 
 
 
-export { buildHomePage, displayTodoList, resetDisplay, addNewListButton };
+
+export { buildHomePage, displayTodoList, resetDisplay, addNewListButton, displayProjects };
 

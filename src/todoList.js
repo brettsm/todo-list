@@ -11,10 +11,18 @@ function createTodoList() {
         todoList.push(todo);
     }
 
-    const length = function() {
+    const getLength = function() {
         return todoList.length;
     }
 
-   return { getTodo, addTodo, length };
+    const getTitleAt = function(index) {
+        return todoList[index].title;
+    }
+
+    const getProjectAt = function(index) {
+        return todoList[index].project;
+    }
+
+   return { getTodo, addTodo, getLength, getTitleAt, getProjectAt };
 }
 export { createTodoList };

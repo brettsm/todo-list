@@ -50,12 +50,17 @@ function handleFormSubmit(event) {
     const dueDate = document.getElementById('due-date').value;
     const priority = document.getElementById('priority').value;
 
-    const newTodo = createTodo(project, title, description, dueDate, priority);
 
     //if allProjectList.containsProject, add it to that project
     //else make a new project titled project
 
+    //create newTodo => addTodo to project (existing/new?), addTodo to total todoList => addProject containing todo to allProjectList
+    
+    const newTodo = createTodo(project, title, description, dueDate, priority);
+    
+
     allTodoList.addTodo(newTodo);
+    allProjectList.addProject(newTodo.project);
 
     hideForm();
 

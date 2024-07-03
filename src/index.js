@@ -12,6 +12,9 @@ import { createTodo } from './todo.js';
 const allTodoList = createTodoList();
 const allProjectList = createProjectList();
 
+allProjectList.addProject(createProject('test'));
+allTodoList.addTodo(createTodo('title', 'description', '01022023', 'low', 'test'));
+
 buildHomePage('content');
 
 addNewListButton();
@@ -19,9 +22,7 @@ addNewListButton();
 displayDashboard();
 
 const dashboardBtn = document.getElementById('dashboard-button');
-dashboardBtn.addEventListener('click', displayDashboard);
-
-const projectBtn = document.getElementById('projects-button');
+dashboardBtn.addEventListener('click', () => displayDashboard());
 
 
 export { allTodoList, allProjectList };
