@@ -1,6 +1,6 @@
 
 function createProject(name) {
-    let name = name;
+
     let todoList = [];
 
     const addTodo = function(todo) {
@@ -27,6 +27,14 @@ function createProject(name) {
 
     const length = function() {
         return todoList.length;
+    }
+
+    const contains = function(todoTitle) {
+        for(i = 0; i < projectList.length; i++) {
+            if(todoList[i].name() == todoTitle) {
+                return true;
+            } else { return false; }
+        }
     }
 
     return { addTodo, removeTodo, getTodoAt, getName, length };

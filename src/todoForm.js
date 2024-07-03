@@ -1,5 +1,7 @@
 import { displayDashboard } from "./dashboardDOM";
 
+import { allTodoList, allProjectList } from './index.js'
+
 function showForm() {
     const display = document.getElementById('display');
 
@@ -49,6 +51,11 @@ function handleFormSubmit(event) {
     const priority = document.getElementById('priority').value;
 
     const newTodo = createTodo(project, title, description, dueDate, priority);
+
+    //if allProjectList.containsProject, add it to that project
+    //else make a new project titled project
+
+    allTodoList.addTodo(newTodo);
 
     hideForm();
 

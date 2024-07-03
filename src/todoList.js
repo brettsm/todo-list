@@ -1,6 +1,6 @@
 //Module for creating a list that keeps track of all of the todos that are created
 
-function createNewTodoList() {
+function createTodoList() {
     let todoList = [];
 
     const getTodo = function(index) {
@@ -14,4 +14,7 @@ function createNewTodoList() {
     const length = function() {
         return todoList.length;
     }
+
+   return { getTodo, addTodo, length };
 }
+export { createTodoList };

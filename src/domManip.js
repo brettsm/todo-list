@@ -3,7 +3,6 @@ import { displayDashboard } from './dashboardDOM.js';
 import { createTodo } from './todo.js';
 import { showForm, hideForm, handleFormSubmit } from './todoForm.js';
 
-
 function buildHomePage(contentDiv) {
     const content = document.getElementById(contentDiv);
 
