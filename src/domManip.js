@@ -46,6 +46,7 @@ function buildHomePage(contentDiv) {
 
     displayProjects(allProjectList);
     
+    
 }
 
 function displayTodoList(list) {
@@ -109,7 +110,7 @@ function displayProjectTodos(project) {
     projectDisplayCard.classList.add('raleway-normal');
     projectDisplayCard.classList.add('card-styling');
     projectDisplayCard.append(document.createElement('h1').textContent = 'TODOS in ' + project);
-    
+
     const display = document.getElementById('display');
     for(let i = 0; i < allTodoList.getLength(); i++) {
         if(allTodoList.getProjectAt(i) == project) {
@@ -142,6 +143,11 @@ function displayProjects(projectList) {
         //add active Listener so when you click on the project it displays all todos associated
         navProject.addEventListener('click', () => displayProjectTodos(projectList.getProjectAt(i).getName()));
     }
+
+    const newTodoButton = document.createElement('button');
+    newTodoButton.classList.add('new-project-button');
+    newTodoButton.textContent = '+';
+    projectSideDiv.append(newTodoButton);
 }
 
 
