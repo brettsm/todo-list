@@ -37,21 +37,20 @@ function buildHomePage(contentDiv) {
     content.append(projectDisplay);
 
     //add button for creating new list
+    addNewListButton();
 
-    const newButton = document.createElement('button');
-    newButton.classList.add('raleway-bold');
-    newButton.id = 'new-button';
-    newButton.textContent = '+';
-    
     projectDisplay.append(newButton);
     console.log('Appended newButton', newButton);
 
-    //newButton.addEventListener('click', showForm);
+    displayDashboard();
+    
 }
 
 function hideForm() {
     const display = document.getElementById('display');
     display.innerHTML = ''; // Clear the display div
+
+    displayDashboard();
 }
 
 function handleFormSubmit(event) {
@@ -159,10 +158,11 @@ function addNewListButton() {
     newButton.classList.add('raleway-bold');
     newButton.id = 'new-button';
     newButton.textContent = '+';
-    
     display.append(newButton);
-    console.log('Appended newButton!!!!!', newButton);
+
+    newButton.addEventListener('click', showForm);
 }
+
 
 
 
