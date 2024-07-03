@@ -39,9 +39,7 @@ function buildHomePage(contentDiv) {
     content.append(projectDisplay);
 
     //add button for creating new list
-    addNewListButton();
 
-    displayDashboard();
     
 }
 

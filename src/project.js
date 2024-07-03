@@ -25,7 +25,11 @@ function createProject(name) {
         return name;
     }
 
-    return { addTodo, removeTodo, getTodoAt, getName };
+    const length = function() {
+        return todoList.length;
+    }
+
+    return { addTodo, removeTodo, getTodoAt, getName, length };
 
 
 }
