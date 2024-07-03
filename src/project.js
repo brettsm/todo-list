@@ -1,4 +1,3 @@
-import { todo } from './todo.js';
 
 function createProject(name) {
     let name = name;
@@ -7,10 +6,29 @@ function createProject(name) {
     const addTodo = function(todo) {
         todoList.push(todo);
     };
-    //TODO: const removeTodo = function(name)
+
+    const removeTodo = function(name) {
+        for(let i = 0; i < todoList.length; i++) {
+            if( todoList[i].title == name) {
+                todoList.splice(i,1);
+                return;
+            }
+        }
+        alert('There was no todo with name: ' + name);
+    }
+
     const getTodoAt = function(index) {
         return todoList[index];
     }
+
+    const getName = function(index) {
+        return name;
+    }
+
+    return { addTodo, removeTodo, getTodoAt, getName };
+
+
 }
+
 
 export { createProject };
