@@ -105,16 +105,18 @@ function displayProjectTodos(project) {
     resetDisplay();
     const projectDisplayCard = document.createElement('div');
     projectDisplayCard.id = 'project-display-card';
-    projectDisplayCard.classList.add('project-display');
+    projectDisplayCard.classList.add('flex-column-center');
     projectDisplayCard.classList.add('raleway-normal');
+    projectDisplayCard.classList.add('card-styling');
     const display = document.getElementById('display');
     for(let i = 0; i < allTodoList.getLength(); i++) {
         if(allTodoList.getProjectAt(i) == project) {
             const todoDiv = document.createElement('div');
             todoDiv.id = 'todo-div-' + allTodoList.getTitleAt(i);
             todoDiv.classList.add('raleway-normal');
+            todoDiv.textContent = allTodoList.getTitleAt(i);
 
-            projectDisplayCard.append('todoDiv');
+            projectDisplayCard.append(todoDiv);
         }
     }
     display.append(projectDisplayCard);
