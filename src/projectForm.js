@@ -1,8 +1,12 @@
 import { displayDashboard } from "./dashboardDOM";
 
-import { allTodoList } from './index.js'
+import { displayProjects, updateProjectDisplay } from "./domManip.js";
 
-function showForm() {
+import { allProjectList } from './index.js'
+
+import { createProject } from './project.js';
+
+function showProjectForm() {
     const display = document.getElementById('display');
 
     // Clear any existing content in the display div
@@ -17,18 +21,6 @@ function showForm() {
     form.innerHTML = `
         <label for="project">Project:</label>
         <input type="text" id="project" name="project" required><br>
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required><br>
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br>
-        <label for="due-date">Due Date:</label>
-        <input type="date" id="due-date" name="due-date" required><br>
-        <label for="priority">Priority:</label>
-        <select id="priority" name="priority" required>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select><br>
         <button type="submit">Submit</button>
         <button type="button" id="cancel-button">Cancel</button>
     `;
@@ -45,22 +37,19 @@ function handleFormSubmit(event) {
     event.preventDefault();
     
     const project = document.getElementById('project').value;
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const dueDate = document.getElementById('due-date').value;
-    const priority = document.getElementById('priority').value;
-
 
     //if allProjectList.containsProject, add it to that project
     //else make a new project titled project
 
     //create newTodo => addTodo to project (existing/new?), addTodo to total todoList => addProject containing todo to allProjectList
     
-    const newTodo = createTodo(project, title, description, dueDate, priority);
+    const newProject = createProject(project);
+    
 
-    allTodoList.addTodo(newTodo);
+    allProjectList.addProject(newProject);
 
     hideForm();
+    updateProjectDisplay(allProjectList);
 
     // You can now use the form data to create a new project or todo item
     // For example:
@@ -75,4 +64,4 @@ function hideForm() {
     displayDashboard();
 }
 
-export { showForm, handleFormSubmit, hideForm };
+export { showProjectForm };

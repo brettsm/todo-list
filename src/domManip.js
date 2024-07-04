@@ -5,7 +5,7 @@ import { showForm, hideForm, handleFormSubmit } from './todoForm.js';
 import { createProjectList } from './projectList.js';
 import { allProjectList, allTodoList } from './index.js';
 import { createProject } from './project.js';
-
+import { showProjectForm } from './projectForm.js';
 function buildHomePage(contentDiv) {
     const content = document.getElementById(contentDiv);
 
@@ -145,10 +145,40 @@ function displayProjects(projectList) {
         navProject.addEventListener('click', () => displayProjectTodos(projectList.getProjectAt(i).getName()));
     }
 
-    const newTodoButton = document.createElement('button');
-    newTodoButton.classList.add('new-project-button');
-    newTodoButton.textContent = '+';
-    projectSideDiv.append(newTodoButton);
+    const newProjectButton = document.createElement('button');
+    newProjectButton.classList.add('new-project-button');
+    newProjectButton.textContent = '+';
+    projectSideDiv.append(newProjectButton);
+    newProjectButton.addEventListener('click', showProjectForm);
+}
+
+function updateProjectDisplay(projectList) {
+    const projectSideDiv = document.getElementById('projects-div');
+    if (!projectSideDiv) {
+        console.error('Element with id "projects-div" not found');
+        return;
+    }
+
+    projectSideDiv.innerHTML = '';
+
+    for (let i = 0; i < projectList.getLength(); i++) {
+        const navProject = document.createElement('button');
+        navProject.id = 'nav-' + projectList.getProjectAt(i).getName() + '-button';
+        navProject.textContent = projectList.getProjectAt(i).getName();
+        navProject.classList.add('raleway-normal');
+        navProject.classList.add('nav-project-button');
+        projectSideDiv.append(navProject);
+
+        //add active Listener so when you click on the project it displays all todos associated
+        navProject.addEventListener('click', () => displayProjectTodos(projectList.getProjectAt(i).getName()));
+    }
+
+    const newProjectButton = document.createElement('button');
+    newProjectButton.classList.add('new-project-button');
+    newProjectButton.textContent = '+';
+    projectSideDiv.append(newProjectButton);
+    newProjectButton.addEventListener('click', showProjectForm);
+
 }
 
 
@@ -158,5 +188,5 @@ function displayProjects(projectList) {
 
 
 
-export { buildHomePage, displayTodoList, resetDisplay, addNewListButton, displayProjects };
+export { buildHomePage, displayTodoList, resetDisplay, addNewListButton, displayProjects, updateProjectDisplay };
 
