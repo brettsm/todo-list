@@ -51,10 +51,7 @@ function handleFormSubmit(event) {
     hideForm();
     updateProjectDisplay(allProjectList);
 
-    // You can now use the form data to create a new project or todo item
-    // For example:
-    // const newTodo = createTodo(title, description, priority, dueDate, project);
-    // displayTodoList([...existingTodos, newTodo]);
+    
 }
 
 function hideForm() {

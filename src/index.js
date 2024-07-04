@@ -7,8 +7,6 @@ import { createProject } from './project.js';
 import { createTodo } from './todo.js';
 
 
-//TODO: Find a way to make the showForm/addNewListButton stay on screen without needing to display it 
-
 const allTodoList = createTodoList();
 const allProjectList = createProjectList();
 
