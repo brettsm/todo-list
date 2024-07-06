@@ -140,10 +140,13 @@
     background-color: whitesmoke;
     border: 2px solid black;
     border-radius: 10px;
-    width: 50px;
+    width: 200px;
     height: 35px;
     margin-top: 5px;
     font-size: normal;
     margin-bottom: 10px;
 }
 
+#project-display-card {
+    margin-top: 10px;
+}
