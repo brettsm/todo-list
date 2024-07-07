@@ -1,8 +1,6 @@
 import './style.css';
 import { showForm } from './todoForm.js';
-
 import { allProjectList, allTodoList } from './index.js';
-
 import { showProjectForm } from './projectForm.js';
 
 
@@ -120,6 +118,16 @@ function displayProjectTodos(project) {
             projectDisplayCard.append(todoButton);
         }
     }
+
+    //TODO: add button to create a new Todo to the project
+    const newButton = document.createElement('button');
+    newButton.classList.add('raleway-bold');
+    newButton.id = 'new-button';
+    newButton.textContent = '+';
+    projectDisplayCard.append(newButton);
+
+    newButton.addEventListener('click', showForm);
+    
     display.append(projectDisplayCard);
 
 }
