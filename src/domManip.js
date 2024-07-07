@@ -4,6 +4,8 @@ import { showForm } from './todoForm.js';
 import { allProjectList, allTodoList } from './index.js';
 
 import { showProjectForm } from './projectForm.js';
+
+
 function buildHomePage(contentDiv) {
     const content = document.getElementById(contentDiv);
 
@@ -23,8 +25,6 @@ function buildHomePage(contentDiv) {
     dashboardButton.classList.add('nav-button');
     dashboardButton.classList.add('raleway-bold');
     dashboardButton.textContent = 'Dashboard';
-    //dashboardButton.addEventListener('click', displayDashboard())
-    //TODO: create a module for displayDashboard
 
     const projectsDiv = document.createElement('div');
     projectsDiv.id = 'projects-div';
