@@ -1,6 +1,6 @@
 import { displayDashboard } from "./dashboardDOM";
 
-import { displayProjects, updateProjectDisplay } from "./domManip.js";
+import { updateProjectDisplay } from "./domManip.js";
 
 import { allProjectList } from './index.js'
 

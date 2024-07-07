@@ -1,10 +1,8 @@
 import './style.css';
-import { displayDashboard } from './dashboardDOM.js';
-import { createTodo } from './todo.js';
-import { showForm, hideForm, handleFormSubmit } from './todoForm.js';
-import { createProjectList } from './projectList.js';
+import { showForm } from './todoForm.js';
+
 import { allProjectList, allTodoList } from './index.js';
-import { createProject } from './project.js';
+
 import { showProjectForm } from './projectForm.js';
 function buildHomePage(contentDiv) {
     const content = document.getElementById(contentDiv);
