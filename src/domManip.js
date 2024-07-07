@@ -98,6 +98,9 @@ function addNewListButton() {
 }
 
 function displayProjectTodos(project) {
+
+    //TODO: understand why the display is not showing todos that were added with the new button
+    //Maybe something to do with append todo
     console.log('appending todos from ' + project);
     resetDisplay();
     const projectDisplayCard = document.createElement('div');
@@ -109,6 +112,7 @@ function displayProjectTodos(project) {
 
     const display = document.getElementById('display');
     for(let i = 0; i < allTodoList.getLength(); i++) {
+        console.log('displaying: ' + allTodoList.getProjectAt(i));
         if(allTodoList.getProjectAt(i) == project) {
             const todoButton = document.createElement('button');
             todoButton.id = 'todo-div-' + allTodoList.getTitleAt(i);
@@ -127,7 +131,7 @@ function displayProjectTodos(project) {
     projectDisplayCard.append(newButton);
 
     newButton.addEventListener('click', showForm);
-    
+
     display.append(projectDisplayCard);
 
 }

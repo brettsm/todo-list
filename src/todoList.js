@@ -9,6 +9,7 @@ function createTodoList() {
 
     const addTodo = function(todo) {
         todoList.push(todo);
+        console.log('adding ' + todo + 'to all list');
     }
 
     const getLength = function() {
